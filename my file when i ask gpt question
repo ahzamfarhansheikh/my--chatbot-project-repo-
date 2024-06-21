@@ -1,0 +1,31 @@
+// my code when I create or ask gpt how are you //
+#include<iostream>
+#include<string>
+using namespace std;
+class Chatbot{
+private:
+	string greetings;
+public:
+	Chatbot(){
+	greetings = "I am fine ! How about  you ?";
+	
+	}
+void respond (string input ){
+if( input == "hello chatgpt how are you"){
+cout<<greetings;
+
+}
+else{
+cout<<"I cant understand what you say !";
+}
+
+}
+
+};
+int main(){
+Chatbot chatbot;
+string input;
+cout<<"You : ";
+getline (cin,input);
+chatbot.respond(input);
+}
