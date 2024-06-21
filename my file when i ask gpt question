@@ -29,3 +29,61 @@ cout<<"You : ";
 getline (cin,input);
 chatbot.respond(input);
 }
+
+// my ocde with three conditions
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Chatbot{
+private:
+    string greetings;
+    string response1;
+    string response2;
+public:
+    Chatbot(){
+        greetings = "Walaikum Assalam I am fine! How about you?";
+        response1 = "I am fine";
+        response2 = "That's good!";
+    }
+    void respond(string input){
+        if(input == "Assalam o Alaikum how are you"){
+            cout << greetings << endl;
+        } else {
+            cout << "I cant understand what you say!" << endl;
+        }
+    }
+    void respondP(string inputP){
+        if(inputP == "How about you"){
+            cout << response1 << endl;
+        } else {
+            cout << "I cant understand what you say!" << endl;
+        }
+    }
+    void respondPP(string inputPP){
+        if(inputPP == "I am fine"){
+            cout << response2 << endl;
+        } else {
+            cout << "I cant understand what you say!" << endl;
+        }
+    }
+};
+
+int main(){
+    Chatbot chatbot;
+    string input;
+    string inputP;
+    string inputPP;
+    cout << "You : ";
+    getline(cin, input);
+    chatbot.respond(input);
+    cout << endl;
+    cout << "You : ";
+    getline(cin, inputP);
+    chatbot.respondP(inputP);
+    cout << endl;
+    cout << "You : ";
+    getline(cin, inputPP);
+    chatbot.respondPP(inputPP);
+    return 0;
+}
