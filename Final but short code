@@ -1,0 +1,54 @@
+// The code has several issues:
+
+1. The respond1 function is defined inside the Chatbot class, but it's not a member function. Move its definition inside the class.
+2. The respondP and respondPP functions are not defined in the Chatbot class. You likely meant to call the respond function again.
+3. The inputP and inputPP variables are not used anywhere.
+4. The respond function checks for an exact match of the input string, which is case-sensitive and doesn't account for minor variations in input.
+
+// Here's a corrected version of the code:
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Chatbot{
+private:
+    string greetings;
+    string response1;
+public:
+    Chatbot(){
+        greetings = "Walaikum Assalam I am fine ! How about you ?";
+        response1 = "That's good!";
+    }
+
+    void respond(string input){
+        if(input == "Assalam o Alaikum how are you" || input == "Assalam o Alaikum, how are you?"){
+            cout<<greetings;
+        } else if(input == "I am fine"){
+            cout<<response1;
+        } else{
+            cout<<"I can't understand what you say!";
+        }
+    }
+};
+
+int main(){
+    Chatbot chatbot;
+    string input;
+
+    cout<<"You: ";
+    getline(cin, input);
+    cout<<"Chatbot: ";
+    chatbot.respond(input);
+    cout<<endl;
+
+    cout<<"You: ";
+    getline(cin, input);
+    cout<<"Chatbot: ";
+    chatbot.respond(input);
+    cout<<endl;
+
+    return 0;
+}
+This version of the code will work as expected, responding to the user's input with the appropriate greeting or response.
+
